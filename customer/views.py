@@ -19,7 +19,7 @@ def user_login(request):
 
         if user is not None:
             login(request, user)
-            return redirect('book_list')
+            return redirect('landing_page')
         else:
             print("Authentication failed!")  # Debugging output
             return render(request, 'customer/login.html', {'error': 'Invalid credentials'})
