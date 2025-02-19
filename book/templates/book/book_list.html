@@ -1,0 +1,34 @@
+<!-- Header -->
+<div style="display: flex; justify-content: space-between; align-items: center; background: #007bff; padding: 15px; color: white;">
+    <h1 style="margin: 0; font-size: 1.5rem;">HP Bookshop</h1>
+    <div>
+        <a href="{% url 'cart_detail' %}" 
+           style="margin-right: 10px; padding: 8px 12px; background: #ffc107; color: #333; text-decoration: none; border-radius: 5px; font-weight: bold;">
+            View Cart
+        </a>
+        <a href="{% url 'logout' %}" 
+           style="padding: 8px 12px; background: #dc3545; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+            Logout
+        </a>
+    </div>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px;">
+    {% for book in books %}
+        <div style="width: 280px; padding: 15px; border: 1px solid #ddd; border-radius: 10px; background: #fff; box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); text-align: center;">
+            <h3 style="margin-bottom: 8px; color: #333; font-size: 1.2rem;">{{ book.title }}</h3>
+            <p style="margin: 5px 0; font-weight: bold; color: #555;">Author: <span style="font-weight: normal;">{{ book.author }}</span></p>
+            <p style="margin: 5px 0; font-weight: bold; color: #007bff;">Price: ${{ book.price }}</p>
+            
+            {% if book.image %}
+                <img src="{{ book.image.url }}" alt="{{ book.title }}" 
+                     style="width: 100%; max-width: 200px; height: auto; border-radius: 8px; margin-top: 10px; transition: transform 0.3s;">
+            {% else %}
+                <p style="color: #888; font-style: italic;">No image available</p>
+            {% endif %}
+            
+            <!-- Add to Cart Button -->
+            <a href="{% url 'add_to_cart' product_type='book' product_id=book.id %}">Add to Cart</a>
+        </div>
+    {% endfor %}
+</div>
+

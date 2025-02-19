@@ -1,0 +1,16 @@
+<form method="post" style="max-width: 300px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; background: #f9f9f9;">
+    {% csrf_token %}
+    
+    <label for="username" style="display: block; margin-bottom: 5px; font-weight: bold;">Username:</label>
+    <input type="text" id="username" name="username" placeholder="Enter your username" required 
+        style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
+
+    <label for="password" style="display: block; margin-bottom: 5px; font-weight: bold;">Password:</label>
+    <input type="password" id="password" name="password" placeholder="Enter your password" required 
+        style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
+    
+    <button type="submit" 
+        style="width: 100%; padding: 10px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        Login
+    </button>
+</form>
