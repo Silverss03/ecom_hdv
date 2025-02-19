@@ -89,17 +89,17 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     },
-#     'mysql_db' : {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'manh_project2',
-#         'USER' : 'root',
-#         'PASSWORD' : '0915166497Bc#',
-#         'HOST' : 'localhost',
-#         'PORT' : '3308',
-#     }
+    'mysql_db' : {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'manh_project2',
+        'USER' : 'root',
+        'PASSWORD' : '0915166497Bc#',
+        'HOST' : 'localhost',
+        'PORT' : '3308',
+    }
 }
 
-# DATABASE_ROUTERS = ['db_router.CustomerRouter']
+DATABASE_ROUTERS = ['db_router.CustomerRouter']
 
 
 # Password validation

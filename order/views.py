@@ -8,7 +8,6 @@ from clothes.models import Clothe
 from phone.models import Phone
 from shoes.models import Shoe
 
-@login_required
 def place_order(request):
     cart = request.session.get('cart', {})
     if not cart:
