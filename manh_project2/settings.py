@@ -96,6 +96,15 @@ DATABASES = {
         'PASSWORD' : '0915166497Bc#',
         'HOST' : 'localhost',
         'PORT' : '3308',
+    },
+    'mongo_db' : {
+        'ENGINE': 'djongo',
+        'NAME': 'manh_project2',
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': 'localhost',
+            'port': 27017,
+        }
     }
 }
 

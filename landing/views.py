@@ -10,7 +10,7 @@ from clothes.models import Clothe
 
 def landing_page(request):
     # Fetch all products from different apps
-    books = Book.objects.all()
+    books = Book.objects.using('mongo_db').all() 
     mobile_phones = Phone.objects.all()
     shoes = Shoe.objects.all()
     clothes = Clothe.objects.all()

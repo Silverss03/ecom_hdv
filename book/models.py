@@ -10,3 +10,8 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        db_table = "book"
+        app_label = "book"
+        managed = True
