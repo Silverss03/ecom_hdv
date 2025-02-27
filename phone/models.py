@@ -11,3 +11,8 @@ class Phone(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        db_table = "phone"
+        app_label = "phone"
+        managed = True

@@ -11,9 +11,9 @@ from clothes.models import Clothe
 def landing_page(request):
     # Fetch all products from different apps
     books = Book.objects.using('mongo_db').all() 
-    mobile_phones = Phone.objects.all()
-    shoes = Shoe.objects.all()
-    clothes = Clothe.objects.all()
+    mobile_phones = Phone.objects.using('mongo_db').all()
+    shoes = Shoe.objects.using('mongo_db').all()
+    clothes = Clothe.objects.using('mongo_db').all()
 
     # Combine all the products into a single context
     context = {

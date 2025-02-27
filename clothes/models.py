@@ -10,3 +10,8 @@ class Clothe(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        db_table = "clothe"
+        app_label = "clothes"
+        managed = True
