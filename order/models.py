@@ -1,8 +1,5 @@
-# Create your models here.
 from django.db import models
 from django.conf import settings
-from django.contrib.contenttypes.fields import GenericForeignKey
-from django.contrib.contenttypes.models import ContentType
 
 class Order(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -19,13 +16,12 @@ class Order(models.Model):
     
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="items")
-    
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)  # Loại sản phẩm (Book, Phone, Clothes, Shoe)
-    object_id = models.PositiveIntegerField()  # ID của sản phẩm cụ thể
-    product = GenericForeignKey('content_type', 'object_id')  # Tạo liên kết động đến model sản phẩm
-    
+
+    # Lưu ID của MongoDB dưới dạng chuỗi
+    product_id = models.CharField(max_length=24)  # MongoDB ObjectId là chuỗi 24 ký tự
+    product_name = models.CharField(max_length=255)  # Lưu tên sản phẩm để hiển thị sau này
     quantity = models.PositiveIntegerField(default=1)
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
-        return f"{self.quantity} x {self.product}"
+        return f"{self.quantity} x {self.product_name}"
