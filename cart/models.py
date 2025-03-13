@@ -1,3 +1,4 @@
+from pymongo import MongoClient  # Import pymongo để truy xuất dữ liệu từ MongoDB
 from django.db import models
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
@@ -11,7 +12,6 @@ class Cart(models.Model):
     quantity = models.IntegerField(default=1)
 
     def total_price(self):
-        from pymongo import MongoClient  # Import pymongo để truy xuất dữ liệu từ MongoDB
         client = MongoClient("mongodb://localhost:27017/")
         db = client['manh_project2']
         collection = db['book']  # Tên collection của Book trong MongoDB

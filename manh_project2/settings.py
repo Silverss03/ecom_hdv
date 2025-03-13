@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'phone',
     'shoes',
     'clothes',
-    'landing'
+    'landing',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [

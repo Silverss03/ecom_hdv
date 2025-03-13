@@ -162,37 +162,3 @@ def order_history(request):
         })
 
     return render(request, 'order/order_history.html', {"orders": order_data})
-
-
-
-# def place_order(request):
-#     customer = request.user
-#     cart_items = Cart.objects.filter(customer=customer)
-
-#     if not cart_items.exists():
-#         return redirect('cart_detail')
-
-#     client = MongoClient("mongodb://localhost:27017/")
-#     db = client['manh_project2']
-#     collection = db['book']
-
-#     order = Order.objects.create(user=customer, total_price=0)
-#     total_price = 0
-
-#     for cart_item in cart_items:
-#         product = collection.find_one({"_id": ObjectId(cart_item.object_id)})
-#         if product:
-#             order_item = OrderItem.objects.create(
-#                 order=order,
-#                 content_type=cart_item.content_type,
-#                 object_id=cart_item.object_id,
-#                 quantity=cart_item.quantity,
-#                 price=cart_item.quantity * float(product["price"])
-#             )
-#             total_price += order_item.price
-
-#     order.total_price = total_price
-#     order.save()
-
-#     cart_items.delete()
-#     return redirect('order_history')
